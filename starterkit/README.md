@@ -18,7 +18,7 @@
 
 ## Installation
 
-The Cog theme is set up to utilize the `base => sub-theme` relationship. The steps below will create your custom sub-theme that is cloned from `STARTERKIT/` folder, along with installing the proper dependencies to setup in a matter of minutes. This approach supports release updates, in addition to providing source references for required and optional pieces.
+The Cog theme is set up to utilize the `base => sub-theme` relationship. The steps below will create your custom sub-theme that is cloned from `starterkit/` folder, along with installing the proper dependencies to setup in a matter of minutes. This approach supports release updates, in addition to providing source references for required and optional pieces.
 
 ### Create Cog Sub-Theme
 
@@ -52,12 +52,12 @@ Cog is a developer-focused base theme and starterkit created by Acquia's Profess
 * Modular gulp tasks for compiling and linting
 * Living style guide construction via KSS-node
 
-Cog is created with the intent of being used as a traditional base theme. By following the steps listed next, you will be cloning the starter sub-theme located in `cog/STARTERKIT`. This allows for proper delineation of the original Cog code from the flexible aspects of your custom theme.  
+Cog is created with the intent of being used as a traditional base theme. By following the steps listed next, you will be cloning the starter sub-theme located in `cog/starterkit`. This allows for proper delineation of the original Cog code from the flexible aspects of your custom theme.  
 
 ```
 contrib/ (theme folder)
 |-- cog/
-|---- STARTERKIT/ 
+|---- starterkit/ 
 
 custom/ (theme folder)
 |-- mytheme/ (cloned from starterkit) 
