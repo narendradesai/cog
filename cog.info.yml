@@ -1,6 +1,6 @@
 name: Cog
 type: theme
-description: 'Acquia D8 base theme'
+description: 'An Acquia-maintained base theme.'
 package: Core
 core: 8.x
 libraries:

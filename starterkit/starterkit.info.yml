@@ -5,9 +5,9 @@ core: 8.x
 hidden: true
 base theme: cog
 libraries:
-  - STARTERKIT/fonts
-  - STARTERKIT/fontawesome
-  - STARTERKIT/global_styles
+  - starterkit/fonts
+  - starterkit/fontawesome
+  - starterkit/global_styles
 regions:
   branding: Branding
   header: Header

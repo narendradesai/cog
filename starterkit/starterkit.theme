@@ -11,7 +11,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Implements hook_preprocess_html().
  */
-function STARTERKIT_preprocess_html(&$variables) {
+function starterkit_preprocess_html(&$variables) {
   $path = \Drupal::service('path.current')->getPath();
   $alias = trim(\Drupal::service('path.alias_manager')
     ->getAliasByPath($path), '/');
@@ -45,7 +45,7 @@ function STARTERKIT_preprocess_html(&$variables) {
 /**
  * Implements hook_preprocess_page().
  */
-function STARTERKIT_preprocess_page(&$variables) {
+function starterkit_preprocess_page(&$variables) {
   // Check if page is panel pages.
   $route_options = \Drupal::routeMatch()->getRouteObject()->getOptions();
   if (isset($route_options['parameters']['page_manager_page'])) {
@@ -59,7 +59,7 @@ function STARTERKIT_preprocess_page(&$variables) {
 /**
  * Implements template_preprocess_block().
  */
-function STARTERKIT_preprocess_block(&$variables) {
+function starterkit_preprocess_block(&$variables) {
   // Custom block type helper classes.
   if (isset($variables['elements']['content']['#block_content'])) {
     $bundle = $variables['elements']['content']['#block_content']->bundle();
@@ -74,7 +74,7 @@ function STARTERKIT_preprocess_block(&$variables) {
 /**
  * Implements hook_preprocess_node().
  */
-function STARTERKIT_preprocess_node(&$variables) {
+function starterkit_preprocess_node(&$variables) {
   // Helper variables for multiple nodes.
   if (!empty($variables['elements']['#entity_type'])) {
     $variables['attributes']['class'][] = Html::cleanCssIdentifier('entity--type-' . $variables['elements']['#entity_type']);
@@ -87,11 +87,11 @@ function STARTERKIT_preprocess_node(&$variables) {
  * Changes vertical tabs to container and adds meta information.
  * Code borrowed from Seven theme.
  */
-function STARTERKIT_form_node_form_alter(&$form, FormStateInterface $form_state) {
+function starterkit_form_node_form_alter(&$form, FormStateInterface $form_state) {
   $node = $form_state->getFormObject()->getEntity();
   $form['#theme'] = ['node_edit_form'];
   $form['advanced']['#type'] = 'container';
-  $is_new = !$node->isNew() ? format_date($node->getChangedTime(), 'short') : t('Not saved yet');
+  $is_new = !$node->isNew() ? \Drupal::service('date.formatter')->format($node->getChangedTime(), 'short') : t('Not saved yet');
   $form['meta'] = [
     '#attributes' => ['class' => ['entity-meta__header']],
     '#type'       => 'container',
