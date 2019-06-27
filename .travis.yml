@@ -12,7 +12,6 @@ cache:
   directories:
     - "$HOME/.composer/cache"
     - "$HOME/.drush/cache"
-    - "$TMPDIR/phpstan/cache"
     - "$HOME/.npm"
     - "$HOME/.nvm"
     - "$TMPDIR/phpstan/cache"
@@ -21,7 +20,7 @@ env:
   global:
     - ORCA_SUT_NAME=drupal/cog
     - ORCA_SUT_BRANCH=8.x-1.x
-    - ORCA_VERSION=v1.0.0-alpha13
+    - ORCA_VERSION=v1.0.0-alpha16
 
 matrix:
   fast_finish: true
@@ -37,7 +36,6 @@ matrix:
     # Custom job.
     - { name: "Gulp test", env: COG_GULP_TEST=true }
   allow_failures:
-    - env: ORCA_JOB=DEPRECATED_CODE_SCAN_CONTRIB
     - env: ORCA_JOB=INTEGRATED_DEV
     - env: ORCA_JOB=CORE_NEXT
 
@@ -53,4 +51,12 @@ script:
   - ../orca/bin/travis/script.sh
   - ./tests/travis/script.sh
 
+before_cache: ../orca/bin/travis/before_cache.sh
+
+after_success: ../orca/bin/travis/after_success.sh
+
 after_failure: ../orca/bin/travis/after_failure.sh
+
+after_script: ../orca/bin/travis/after_script.sh
+
+before_script: ../orca/bin/travis/before_script.sh
